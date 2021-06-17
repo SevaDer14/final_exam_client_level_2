@@ -5,7 +5,7 @@ import CategoryNavigation from './CategoryNavigation';
 import './styles/app.css';
 
 const App = () => {
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('all');
 
   return (
     <div className='container'>

@@ -6,11 +6,15 @@ const CategoryNavigation = ({ setCategory }) => {
     setCategory(event.target.innerText.toLowerCase());
   };
 
-  const categories = Array.from(
-    new Set(courses.map((course) => course.category))
-  );
+  const getCategories = () => {
+    let categories = Array.from(
+      new Set(courses.map((course) => course.category))
+    );
+    categories.unshift('all');
+    return categories;
+  };
 
-  const listOfCategories = categories.map((category) => (
+  const listOfCategories = getCategories().map((category) => (
     <li
       data-cy='category'
       className={'capitalized bold'}

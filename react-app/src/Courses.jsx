@@ -4,7 +4,7 @@ import { courses } from './data/courses';
 const Courses = ({ category }) => {
   let courcesInCategory = courses;
 
-  if (category) {
+  if (category !== 'all') {
     courcesInCategory = courses.filter(
       (course) => course.category === category
     );
