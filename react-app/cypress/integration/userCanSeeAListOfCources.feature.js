@@ -10,7 +10,7 @@ describe('user can see app and a list of all cources', () => {
   it('is expected to show the list of categories', () => {
     cy.get('[data-cy=category-menu]').within(() => {
       cy.get('[data-cy=category]').should('have.length', 6);
-      cy.get('[data-cy=category]').first().shoud('contain.text', 'Workshops');
+      cy.get('[data-cy=category]').first().should('contain.text', 'workshops');
     });
   });
 
