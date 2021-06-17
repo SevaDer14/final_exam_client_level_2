@@ -1,34 +1,30 @@
 import React from 'react';
 import { courses } from './data/courses';
+import CourseCard from './CourseCard';
 
 const Courses = ({ category }) => {
   let courcesInCategory = courses;
 
-  if (category !== 'all') {
-    courcesInCategory = courses.filter(
-      (course) => course.category === category
-    );
-  }
+  const getCategoriesToDisplay = () => {
+    if (category !== 'all') {
+      courcesInCategory = courses.filter(
+        (course) => course.category === category
+      );
+    }
+    return courcesInCategory
+  };
 
-  const listOfCources = courcesInCategory.map((course) => (
-    <div data-cy='course-container'>
-      <h2 data-cy='title'>{course.title}</h2>
-      <p data-cy='description'>{course.description}</p>
-      <p data-cy='course-category' className='capitalized'>
-        <span className='bold'>Category: </span>
-        {course.category}
-      </p>
-      <p data-cy='instructors'>
-        <span className='bold'>Instructors: </span>
-        {course.instructors}
-      </p>
-      <p data-cy='info'>{course.info}</p>
-      <p data-cy='price'>
-        <span className='bold'>Price: </span>
-        {course.price}
-      </p>
-    </div>
+  const listOfCources = getCategoriesToDisplay().map((course) => (
+    <CourseCard
+      title={course.title}
+      description={course.description}
+      category={course.category}
+      instructors={course.instructors}
+      info={course.info}
+      price={course.price}
+    />
   ));
+
   return <>{listOfCources}</>;
 };
 
