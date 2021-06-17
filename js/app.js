@@ -1,6 +1,5 @@
 const app = document.getElementById('app')
 
-// creates array of values of specific key of object (used to save all categories from courses)
 const pluck = (array, key) => {
   var pluckedArray = [];
   array.forEach(item => {
@@ -11,12 +10,10 @@ const pluck = (array, key) => {
   return pluckedArray;
 }
 
-//assigns container class to app
 const addContainer = () => {
   app.classList.add('container')
 }
 
-//creates page header h1, style through h1
 const displayHeadline = () => {
   const headline = document.createElement('h1')
   headline.classList.add('center')
@@ -24,7 +21,6 @@ const displayHeadline = () => {
   app.appendChild(headline)
 }
 
-// creates div with info about ciertain course
 const displayCourses = () => {
   courses.forEach(course => {
     const courseDiv = document.createElement('div')
@@ -40,7 +36,6 @@ const displayCourses = () => {
   })
 }
 
-// creates navigation/filter menu of different categories
 const displayUniqueCategories = () => {
   let uniqueCategories = pluck(courses, 'category')
     .filter((value, index, array) => array.indexOf(value) === index);
@@ -56,7 +51,6 @@ const displayUniqueCategories = () => {
   app.insertAdjacentElement("beforeend", categoryList)
 }
 
-// hides cources not in category
 const hideCourses = (elements, category) => {
   elements.forEach(course => {
     course.style.display = "";
@@ -64,7 +58,6 @@ const hideCourses = (elements, category) => {
   })
   return null
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
   addContainer()
