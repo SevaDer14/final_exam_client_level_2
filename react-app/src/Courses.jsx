@@ -1,8 +1,11 @@
 import React from 'react';
+import {courses} from './data/courses'
 
 const Courses = () => {
-  const listOfCources = cources.map((course) => (
-    <div className='course-container'></div>
+  const listOfCources = courses.map((course) => (
+    <div data-cy='course-container'>
+      <h2>{course.title}</h2>
+    </div>
   ));
   return <>{listOfCources}</>;
 };
